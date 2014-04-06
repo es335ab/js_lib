@@ -2,6 +2,7 @@
 
 var UXDLIB_SP = {};
 
+//tap
 (function(UXDLIB_SP){
   UXDLIB_SP.tap = function(args){
     this.targetClassName = document.getElementsByClassName(args.targetClassName);

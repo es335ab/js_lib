@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+
+<title>Height Adjust | UXD JS Library</title>
+<meta name="description" content="Markdown renderer">
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<section class="container">
+  <h1 class="siteTitle">Height Adjust</h1>
+  <ul class="about">
+    <li>#jsHeightAdjustIdを親のulもしくはolに追加する</li>
+  </ul>
+
+  <div class="content">
+    <section class="case">
+      <h1 class="hl">3ずつ高さを合わせてみる</h1>
+      <ul class="testList test01" id="jsHeightAdjustId01">
+        <li style="height: 100px;">100px</li>
+        <li style="height: 200px;">200px</li>
+        <li style="height: 300px;">300px</li>
+        <li style="height: 400px;">400px</li>
+        <li style="height: 500px;">500px</li>
+        <li style="height: 600px;">600px</li>
+        <li style="height: 700px;">700px</li>
+        <li style="height: 800px;">800px</li>
+      </ul>
+      <div class="explanation">
+
+      </div>
+    </section>
+    <section class="case">
+      <h1 class="hl">4ずつ高さを合わせてみる</h1>
+      <ul class="testList test02" id="jsHeightAdjustId02">
+        <li style="height: 100px;">100px</li>
+        <li style="height: 200px;">200px</li>
+        <li style="height: 300px;">300px</li>
+        <li style="height: 400px;">400px</li>
+        <li style="height: 500px;">500px</li>
+        <li style="height: 600px;">600px</li>
+        <li style="height: 700px;">700px</li>
+        <li style="height: 800px;">800px</li>
+        <li style="height: 900px;">900px</li>
+      </ul>
+      <div class="explanation">
+
+      </div>
+    </section>
+  </div>
+</section>
+
+<style>
+.testList.test01 {
+  width: 330px;
+}
+.testList.test02 {
+  width: 440px;
+}
+.testList {
+  .hl {
+    font-size: 28px;
+  }
+}
+.testList:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.testList li {
+  width: 100px;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: #ddd;
+}
+</style>
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/uxd_lib_pc.js"></script>
+<script>
+  //3ずつ高さを合わせてみる
+  new UXDLIB_SP.heightAdjust({
+    targetId : '#jsHeightAdjustId01',
+    multipleNum : 3
+  });
+
+  //4ずつ高さを合わせてみる
+  new UXDLIB_SP.heightAdjust({
+    targetId : '#jsHeightAdjustId02',
+    multipleNum : 4
+  });
+</script>
+</body>
+</html>
