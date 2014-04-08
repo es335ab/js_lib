@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+
+<title>Modal | UXD JS Library</title>
+<meta name="description" content="Markdown renderer">
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/main.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/modal.css" rel="stylesheet">
+</head>
+
+<body>
+<section class="container">
+  <h1 class="siteTitle">Modal</h1>
+  <ul class="about">
+    <li>使用例：.jsModalのDOMがクリックされた時に、bodyに.jsWindowがaddされる</li>
+  </ul>
+
+  <div class="content">
+    <div class="button jsTrigger" style="margin-top: 100px;">click</div>
+    <div class="button jsTrigger">click</div>
+  </div>
+
+  <div class="jsBgModal">
+    <div class="jsTarget">
+      <div class="jsClose">×閉じる</div>
+      <ul>
+          <li><a href="#">menu1</a></li>
+          <li><a href="#">menu2</a></li>
+          <li><a href="#">menu3</a></li>
+      </ul>
+      <div class="jsClose">×閉じる</div>
+    </div>
+    <div class="jsTarget">
+      <p>あいうえお</p>
+    </div>
+  </div>
+
+  <!--<div class="explanation">-->
+    <!--<script src="https://gist.github.com/es335ab/9930360.js"></script>-->
+    <!--<script src="https://gist.github.com/es335ab/9930370.js"></script>-->
+  <!--</div>-->
+</section>
+
+<style>
+.button {
+  padding: 10px 50px;
+  text-align: center;
+  display: inline-block;
+  background-color: #ccc;
+  color: #fff;
+  font-weight: bold;
+}
+.button.jsTapped {
+  background-color: #999;
+}
+</style>
+
+<script src="../js/uxd_lib_sp.js"></script>
+<script>
+  new UXDLIB_SP.modal([{
+    triggerClassName : 'jsTrigger',
+    targetClassName : 'jsTarget',
+    bgModal : 'jsBgModal',
+    triggerClose : 'jsClose',
+    paddingTop : 20
+  },
+  {
+    triggerClassName : 'jsTrigger',
+    targetClassName : 'jsTarget',
+    bgModal : 'jsBgModal',
+    triggerClose : 'jsClose',
+    paddingTop : 20
+  }]);
+</script>
+</body>
+</html>

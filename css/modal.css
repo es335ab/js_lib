@@ -1,0 +1,29 @@
+.jsBgModal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.jsTarget {
+  display: none;
+  position: absolute;
+  width: 90%;
+  background: white;
+  z-index: 2;
+}
+.showModal {
+  display: block !important;
+}
+.jsTarget li {
+  padding-top: 10px;
+}
+.jsTarget li:last-child {
+  padding-bottom: 10px;
+}
+.jsClose {
+  font-size: 12px;
+  cursor: pointer;
+  text-align: right;
+}
