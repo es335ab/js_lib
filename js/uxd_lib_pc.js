@@ -10,7 +10,7 @@ var UXDLIB_PC = {};
     this.multipleNum = args.multipleNum;
     this.remainderNum = this.targetlistlength % this.multipleNum;
     this.heightVal = 0;
-    this.mostHighVal = 0;
+    this.mostHighestVal = 0;
     this.comparisonArr = [];
 
     this.init();
@@ -29,27 +29,27 @@ var UXDLIB_PC = {};
     }
   }
 
-  fn.getMostHighVal = function(){
+  fn.getMostHighestVal = function(){
     this.comparisonArr = this.comparisonArr.sort(function(a, b){
       if(a < b) return 1;
       if(a > b) return -1;
       return 0;
     });
-    this.mostHighVal = this.comparisonArr[0];
+    this.mostHighestVal = this.comparisonArr[0];
   }
 
   fn.adjustFunction = function(parentNum){
-    this.getMostHighVal();
+    this.getMostHighestVal();
     for(var j = 0; j < (this.multipleNum - 1); j++){
-      this.$targetList.eq(parentNum - 1 - j).css('height', this.mostHighVal + 'px');
+      this.$targetList.eq(parentNum - 1 - j).css('height', this.mostHighestVal + 'px');
     }
     this.comparisonArr = [];
   }
 
   fn.adjustFunctionLast = function(){
-    this.getMostHighVal();
+    this.getMostHighestVal();
     for(var k = 0; k < this.remainderNum; k++){
-      this.$targetList.eq(this.targetlistlength - 1 - k).css('height', this.mostHighVal + 'px');
+      this.$targetList.eq(this.targetlistlength - 1 - k).css('height', this.mostHighestVal + 'px');
     }
   }
 
