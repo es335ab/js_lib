@@ -101,13 +101,13 @@ var UXDLIB_SP = {};
         bgModalWrp[0].setAttribute('style', 'width:' + doc.body.clientWidth + 'px;height:' + doc.body.clientHeight + 'px;');
       if(this.modalShingleMode){
         modalWrp[0].classList.add('showModal');
-        modalWrp[0].setAttribute('style','top:' + (e.view.scrollY + this.padding) + 'px;left:' + e.view.scrollX + 'px;');
+        modalWrp[0].setAttribute('style','top:' + (e.view.scrollY + this.padding) + 'px;left:' + (e.view.scrollX + this.padding) + 'px;');
       } else if(this.loadEvent){
         modalWrp[0].classList.add('showModal');
         modalWrp[0].setAttribute('style','top:' + (0 + this.padding) + 'px;left:' + this.padding + 'px;');
       }else{
         modalWrp[num].classList.add('showModal');
-        modalWrp[num].setAttribute('style','top:' + (e.view.scrollY + this.padding) + 'px;left:' + e.view.scrollX + 'px;');
+        modalWrp[num].setAttribute('style','top:' + (e.view.scrollY + this.padding) + 'px;left:' + (e.view.scrollX + this.padding) + 'px;');
       }
       if(this.callBackOpen){
         this.callBackOpen(e);
