@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+
+  <title>Modal | UXD JS Library</title>
+  <meta name="description" content="Markdown renderer">
+
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/pc/modal.css" rel="stylesheet">
+</head>
+
+<body>
+<section class="container">
+  <h1 class="siteTitle">Modal</h1>
+
+  <div class="content">
+    <h2>load時に表示するパターン</h2>
+
+    <div class="button jsTrigger">click</div>
+    <div class="button jsTrigger">click</div>
+
+    <div class="jsBgModal">
+      <div class="jsTarget">
+        <div class="jsClose">閉じる</div>
+        <ul>
+          <li><a href="#">menu1</a></li>
+          <li><a href="#">menu2</a></li>
+          <li><a href="#">menu3</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="explanation">
+      <script src="https://gist.github.com/ayadoguchi/e52c4efbbbd34282dc06.js"></script>
+      <script src="https://gist.github.com/ayadoguchi/92f7eea6d61237c8ccdb.js"></script>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .button {
+    padding: 10px 50px;
+    text-align: center;
+    display: inline-block;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+  }
+</style>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/uxd_lib_pc.js"></script>
+<script>
+  new UXDLIB_PC.modal({
+    triggerClassName : 'jsTrigger',
+    targetClassName : 'jsTarget',
+    bgModal : 'jsBgModal',
+    topPadding : 10,
+    triggerClose : 'jsClose',
+    loadEvent : true
+  });
+</script>
+</body>
+</html>

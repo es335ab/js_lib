@@ -1,0 +1,56 @@
+.jsBgModal,
+.jsBgModal2,
+.jsBgModal3,
+.jsBgModal4,
+.jsBgModal5,
+.jsBgModal6{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.jsTarget,
+.jsTarget2,
+.jsTarget3,
+.jsTarget4,
+.jsTarget5,
+.jsTarget6{
+  display: none;
+  position: absolute;
+  background: white;
+  width: auto;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+}
+.showModal {
+  display: block !important;
+}
+.jsTarget li,
+.jsTarget2 li,
+.jsTarget3 li,
+.jsTarget4 li,
+.jsTarget5 li,
+.jsTarget6 li{
+  padding-top: 10px;
+}
+.jsTarget li:last-child,
+.jsTarget2 li:last-child,
+.jsTarget3 li:last-child,
+.jsTarget4 li:last-child,
+.jsTarget5 li:last-child,
+.jsTarget6 li:last-child{
+  padding-bottom: 10px;
+}
+.jsClose,
+.jsClose2,
+.jsClose3,
+.jsClose4,
+.jsClose5,
+.jsClose6{
+  font-size: 12px;
+  cursor: pointer;
+  text-align: right;
+}

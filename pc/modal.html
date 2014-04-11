@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
 
-<title>Modal | UXD JS Library</title>
-<meta name="description" content="Markdown renderer">
+  <title>Modal | UXD JS Library</title>
+  <meta name="description" content="Markdown renderer">
 
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../css/main.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../css/sp/modal.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/pc/modal.css" rel="stylesheet">
 </head>
 
 <body>
@@ -36,26 +36,7 @@
 
     <div class="explanation">
       <script src="https://gist.github.com/ayadoguchi/20c8a43aa30149e5182f.js"></script>
-      <script src="https://gist.github.com/ayadoguchi/a7df0fb5d83de695d560.js"></script>
-    </div>
-
-    <h2>tapパターン</h2>
-
-    <div class="button jsTrigger2">click</div>
-
-    <div class="jsBgModal2">
-      <div class="jsTarget2">
-        <ul>
-          <li><a href="#">menu1</a></li>
-          <li><a href="#">menu2</a></li>
-          <li><a href="#">menu3</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="explanation">
-      <script src="https://gist.github.com/ayadoguchi/a9654cbb3a4838db14d6.js"></script>
-      <script src="https://gist.github.com/ayadoguchi/d79c96a7b9f96652211b.js"></script>
+      <script src="https://gist.github.com/ayadoguchi/697e448cd4d9cc0314b5.js"></script>
     </div>
 
     <h2>閉じるパターン</h2>
@@ -75,7 +56,7 @@
 
     <div class="explanation">
       <script src="https://gist.github.com/ayadoguchi/99fde64030142c51dd32.js"></script>
-      <script src="https://gist.github.com/ayadoguchi/6323790dfa4269fd0380.js"></script>
+      <script src="https://gist.github.com/ayadoguchi/d54bb4a43139b9475ddd.js"></script>
     </div>
 
     <h2>コールバックパターン</h2>
@@ -95,7 +76,7 @@
 
     <div class="explanation">
       <script src="https://gist.github.com/ayadoguchi/45cae9b1d7ae161099f9.js"></script>
-      <script src="https://gist.github.com/ayadoguchi/7a5fa7af8eff32dd2a25.js"></script>
+      <script src="https://gist.github.com/ayadoguchi/d2cfe92da05a8b2a2d19.js"></script>
     </div>
 
     <h2>トリガー2つパターン</h2>
@@ -116,7 +97,7 @@
 
     <div class="explanation">
       <script src="https://gist.github.com/ayadoguchi/e52c4efbbbd34282dc06.js"></script>
-      <script src="https://gist.github.com/ayadoguchi/b1b7a14e0034b37e042b.js"></script>
+      <script src="https://gist.github.com/ayadoguchi/e71f48b79f414fc90417.js"></script>
     </div>
 
 
@@ -127,64 +108,52 @@
 </section>
 
 <style>
-.button {
-  padding: 10px 50px;
-  text-align: center;
-  display: inline-block;
-  background-color: #ccc;
-  color: #fff;
-  font-weight: bold;
-}
+  .button {
+    padding: 10px 50px;
+    text-align: center;
+    display: inline-block;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+  }
 </style>
-
-<script src="../js/uxd_lib_sp.js"></script>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/uxd_lib_pc.js"></script>
 <script>
   function modalCallBack(e){
     alert('callback:' + e.target.id + 'がclickされました');
   }
   //オプション無し
-  new UXDLIB_SP.modal({
+  new UXDLIB_PC.modal({
     triggerClassName : 'jsTrigger',
     targetClassName : 'jsTarget',
     bgModal : 'jsBgModal',
-    topPadding : 10,
-    bindSelect : 'click'
-  });
-  //tapパターン
-  new UXDLIB_SP.modal({
-    triggerClassName : 'jsTrigger2',
-    targetClassName : 'jsTarget2',
-    bgModal : 'jsBgModal2',
-    topPadding : 10,
-    bindSelect : 'touchstart'
+    topPadding : 10
   });
   //閉じるパターン
-  new UXDLIB_SP.modal({
+  new UXDLIB_PC.modal({
     triggerClassName : 'jsTrigger3',
     targetClassName : 'jsTarget3',
     bgModal : 'jsBgModal3',
     topPadding : 10,
-    triggerClose : 'jsClose3',
-    bindSelect : 'click'
+    triggerClose : 'jsClose3'
   });
   //コールバックパターン
-  new UXDLIB_SP.modal({
+  new UXDLIB_PC.modal({
     triggerClassName : 'jsTrigger4',
     targetClassName : 'jsTarget4',
     bgModal : 'jsBgModal4',
     topPadding : 10,
     triggerClose : 'jsClose4',
-    bindSelect : 'click',
     callBackOpen : function(e){modalCallBack(e);}
   });
   //トリガー2つパターン
-  new UXDLIB_SP.modal({
+  new UXDLIB_PC.modal({
     triggerClassName : 'jsTrigger5',
     targetClassName : 'jsTarget5',
     bgModal : 'jsBgModal5',
     topPadding : 10,
     triggerClose : 'jsClose5',
-    bindSelect : 'click',
     modalShingleMode : 'true'
   });
 </script>
