@@ -28,7 +28,8 @@ pre,
   margin: 40px 0 40px 40px;
 }
 
-ul {
+ul,
+ol {
   padding-left: 40px;
 }
 
