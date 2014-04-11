@@ -11,9 +11,9 @@ var UXDLIB_SP = {};
     this.init();
   }
 
-  var fn = UXDLIB_SP.tap.prototype;
+  var proto = UXDLIB_SP.tap.prototype;
 
-  fn.init = function () {
+  proto.init = function () {
     var self = this;
     for (var i = 0 , I = this.targetClassName.length; i < I; i++) {
       (function (l) {
@@ -35,11 +35,11 @@ var UXDLIB_SP = {};
       })(i);
     }
 
-    fn.addTapped = function (num) {
+    proto.addTapped = function (num) {
       this.targetClassName[num].classList.add(this.addClassName);
     };
 
-    fn.removeTapped = function (num) {
+    proto.removeTapped = function (num) {
       this.targetClassName[num].classList.remove(this.addClassName);
     };
   }
@@ -58,9 +58,9 @@ var UXDLIB_SP = {};
     this.init();
   }
 
-  var fn = UXDLIB_SP.modal.prototype;
+  var proto = UXDLIB_SP.modal.prototype;
 
-  fn.init = function () {
+  proto.init = function () {
     var self = this;
 
     if (self.loadEvent) {
@@ -80,7 +80,6 @@ var UXDLIB_SP = {};
     for (var i = 0 , I = self.triggerClose.length; i < I; i++) {
       (function (l) {
         self.triggerClose[l].addEventListener(self.eventType, function (evt) {
-          console.log(self);
           self.removeWindow(evt, document);
         }, false);
       })(i);
@@ -93,7 +92,7 @@ var UXDLIB_SP = {};
     },false);
   }
 
-  fn.addWindow = function (num, doc, win, e) {
+  proto.addWindow = function (num, doc, win, e) {
     var modalWrp = doc.getElementsByClassName(this.targetClassName),
         bgModalWrp = doc.getElementsByClassName(this.bgModal);
     bgModalWrp[0].classList.add('showModal');
@@ -102,7 +101,6 @@ var UXDLIB_SP = {};
       modalWrp[0].classList.add('showModal');
       modalWrp[0].setAttribute('style', 'top:' + (e.view.scrollY + this.topPadding) + 'px;');
     } else if (this.loadEvent) {
-      console.log(e.view);
       modalWrp[0].classList.add('showModal');
       modalWrp[0].setAttribute('style', 'top:' + this.topPadding + 'px;');
     } else {
@@ -114,7 +112,7 @@ var UXDLIB_SP = {};
     }
   };
 
-  fn.removeWindow = function (e, doc) {
+  proto.removeWindow = function (e, doc) {
     doc.getElementsByClassName(this.bgModal)[0].classList.remove('showModal');
     if (this.modalSingleMode) {
       doc.getElementsByClassName(this.targetClassName)[0].classList.remove('showModal');

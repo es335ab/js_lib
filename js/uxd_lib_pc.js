@@ -17,9 +17,9 @@ var UXDLIB_PC = {};
     this.init();
   }
 
-  var fn = UXDLIB_PC.heightAdjust.prototype;
+  var proto = UXDLIB_PC.heightAdjust.prototype;
 
-  fn.init = function(){
+  proto.init = function(){
     for(var i = 0, I = this.targetlistlength; i < I; i++){
       this.heightVal = this.$targetList.eq(i).height();
       this.comparisonArr.push(this.heightVal);
@@ -30,7 +30,7 @@ var UXDLIB_PC = {};
     }
   }
 
-  fn.getMostHighestVal = function(){
+  proto.getMostHighestVal = function(){
     this.comparisonArr = this.comparisonArr.sort(function(a, b){
       if(a < b) return 1;
       if(a > b) return -1;
@@ -39,7 +39,7 @@ var UXDLIB_PC = {};
     this.mostHighestVal = this.comparisonArr[0];
   }
 
-  fn.adjustFunction = function(parentNum){
+  proto.adjustFunction = function(parentNum){
     this.getMostHighestVal();
     for(var j = 0; j < (this.multipleNum - 1); j++){
       this.$targetList.eq(parentNum - 1 - j).css('height', this.mostHighestVal + 'px');
@@ -47,7 +47,7 @@ var UXDLIB_PC = {};
     this.comparisonArr = [];
   }
 
-  fn.adjustFunctionLast = function(){
+  proto.adjustFunctionLast = function(){
     this.getMostHighestVal();
     for(var k = 0; k < this.remainderNum; k++){
       this.$targetList.eq(this.targetlistlength - 1 - k).css('height', this.mostHighestVal + 'px');
@@ -70,9 +70,9 @@ var UXDLIB_PC = {};
     this.init();
   }
 
-  var fn = UXDLIB_PC.modal.prototype;
+  var proto = UXDLIB_PC.modal.prototype;
 
-  fn.init = function(){
+  proto.init = function(){
     var self = this;
 
     if(self.loadEvent){
@@ -105,7 +105,7 @@ var UXDLIB_PC = {};
 
   }
 
-  fn.addWindow = function(num, e){
+  proto.addWindow = function(num, e){
     var modalWrp = $('.' + this.targetClassName),
         bgModalWrp = $('.' + this.bgModal);
     bgModalWrp.addClass('showModal');
@@ -117,7 +117,7 @@ var UXDLIB_PC = {};
     }
   };
 
-  fn.removeWindow = function(){
+  proto.removeWindow = function(){
     $('.' + this.bgModal).removeClass('showModal');
     if(this.modalSingleMode){
       $('.' + this.targetClassName).removeClass('showModal');
@@ -128,7 +128,7 @@ var UXDLIB_PC = {};
     }
   }
 
-  fn.addWindow = function (num, e) {
+  proto.addWindow = function (num, e) {
     var modalWrp = $('.' + this.targetClassName),
         bgModalWrp = $('.' + this.bgModal);
     bgModalWrp.addClass('showModal');
@@ -141,7 +141,7 @@ var UXDLIB_PC = {};
     }
   };
 
-  fn.removeWindow = function () {
+  proto.removeWindow = function () {
     $('.' + this.bgModal).removeClass('showModal');
     if (this.modalSingleMode) {
       $('.' + this.targetClassName).removeClass('showModal');
@@ -175,16 +175,15 @@ var UXDLIB_PC = {};
     this.init();
   }
 
-  var fn = UXDLIB_PC.uaCheck.prototype;
+  var proto = UXDLIB_PC.uaCheck.prototype;
 
-  fn.init = function (evt) {
+  proto.init = function (evt) {
     var self = this,
         device = self.deviceCheck();
     this.callBackOpen(device);
-    console.log(this.ua);
   }
 
-  fn.deviceCheck = function () {
+  proto.deviceCheck = function () {
 
     this.browser = this.browserCheck();
     if (this.iPhone !== -1 || this.iPad !== -1 || this.iPod !== -1 || this.Android !== -1) {
@@ -244,7 +243,7 @@ var UXDLIB_PC = {};
     return this.arryUA;
   }
 
-  fn.lowerAndroid = function (n) {
+  proto.lowerAndroid = function (n) {
     var flag = false,
         ua_lower = navigator.userAgent.toLowerCase(),
         version = ua_lower.substr(ua_lower.indexOf('android') + 8, 3);
@@ -252,7 +251,7 @@ var UXDLIB_PC = {};
     return flag;
   }
 
-  fn.browserCheck = function () {
+  proto.browserCheck = function () {
     if (this.msie !== -1 && this.device1 === 'PC') {
       //IE
       this.browser = 'msie';
