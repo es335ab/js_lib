@@ -148,7 +148,7 @@
     targetClassName : 'jsTarget',
     bgModal : 'jsBgModal',
     topPadding : 10,
-    bindSelect : 'click'
+    eventType : 'click'
   });
   //tapパターン
   new UXDLIB_SP.modal({
@@ -156,7 +156,7 @@
     targetClassName : 'jsTarget2',
     bgModal : 'jsBgModal2',
     topPadding : 10,
-    bindSelect : 'touchstart'
+    eventType : 'touchstart'
   });
   //閉じるパターン
   new UXDLIB_SP.modal({
@@ -165,7 +165,7 @@
     bgModal : 'jsBgModal3',
     topPadding : 10,
     triggerClose : 'jsClose3',
-    bindSelect : 'click'
+    eventType : 'click'
   });
   //コールバックパターン
   new UXDLIB_SP.modal({
@@ -174,7 +174,7 @@
     bgModal : 'jsBgModal4',
     topPadding : 10,
     triggerClose : 'jsClose4',
-    bindSelect : 'click',
+    eventType : 'click',
     callBackOpen : function(e){modalCallBack(e);}
   });
   //トリガー2つパターン
@@ -184,8 +184,8 @@
     bgModal : 'jsBgModal5',
     topPadding : 10,
     triggerClose : 'jsClose5',
-    bindSelect : 'click',
-    modalShingleMode : 'true'
+    eventType : 'click',
+    modalSingleMode : 'true'
   });
 </script>
 </body>

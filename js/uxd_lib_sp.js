@@ -48,11 +48,10 @@ var UXDLIB_SP = {};
       this.triggerClassName = document.getElementsByClassName(args.triggerClassName);
       this.targetClassName = args.targetClassName;
       this.bgModal = args.bgModal;
-      this.topPadding = args.topPadding;
       this.triggerClose = document.getElementsByClassName(args.triggerClose);
-      this.padding = args.padding;
-      this.bindSelect = args.bindSelect;
-      this.modalShingleMode = args.modalShingleMode;
+      this.topPadding = args.topPadding;
+      this.eventType = args.eventType;
+      this.modalSingleMode = args.modalSingleMode;
       this.loadEvent = args.loadEvent;
       this.callBackOpen = args.callBackOpen;
 
@@ -72,7 +71,7 @@ var UXDLIB_SP = {};
 
     for (var i = 0 , I = self.triggerClassName.length; i < I; i++) {
       (function (l) {
-        self.triggerClassName[l].addEventListener(self.bindSelect, function (evt) {
+        self.triggerClassName[l].addEventListener(self.eventType, function (evt) {
           self.addWindow(l, document, window, evt);
         }, false);
       })(i);
@@ -80,14 +79,14 @@ var UXDLIB_SP = {};
 
     for (var i = 0 , I = self.triggerClose.length; i < I; i++) {
       (function (l) {
-        self.triggerClose[l].addEventListener(self.bindSelect, function (evt) {
+        self.triggerClose[l].addEventListener(self.eventType, function (evt) {
           console.log(self);
           self.removeWindow(evt, document);
         }, false);
       })(i);
     }
 
-    document.body.addEventListener(self.bindSelect, function (evt) {
+    document.body.addEventListener(self.eventType, function (evt) {
       if (evt.target.className === self.bgModal + ' showModal') {
         self.removeWindow(evt, document);
       }
@@ -99,14 +98,16 @@ var UXDLIB_SP = {};
         bgModalWrp = doc.getElementsByClassName(this.bgModal);
     bgModalWrp[0].classList.add('showModal');
     bgModalWrp[0].setAttribute('style', 'width:' + doc.body.clientWidth + 'px;height:' + doc.body.clientHeight + 'px;');
-    if (this.modalShingleMode) {
+    if (this.modalSingleMode) {
       modalWrp[0].classList.add('showModal');
-      modalWrp[0].setAttribute('style', 'top:' + e.view.scrollY + 'px;');
+      modalWrp[0].setAttribute('style', 'top:' + (e.view.scrollY + this.topPadding) + 'px;');
     } else if (this.loadEvent) {
+      console.log(e.view);
       modalWrp[0].classList.add('showModal');
+      modalWrp[0].setAttribute('style', 'top:' + this.topPadding + 'px;');
     } else {
       modalWrp[num].classList.add('showModal');
-      modalWrp[num].setAttribute('style', 'top:' + e.view.scrollY + 'px;');
+      modalWrp[num].setAttribute('style', 'top:' + (e.view.scrollY + this.topPadding) + 'px;');
     }
     if (this.callBackOpen) {
       this.callBackOpen(e);
@@ -115,7 +116,7 @@ var UXDLIB_SP = {};
 
   fn.removeWindow = function (e, doc) {
     doc.getElementsByClassName(this.bgModal)[0].classList.remove('showModal');
-    if (this.modalShingleMode) {
+    if (this.modalSingleMode) {
       doc.getElementsByClassName(this.targetClassName)[0].classList.remove('showModal');
     } else {
       for (var m = 0 , M = doc.getElementsByClassName(this.targetClassName).length; m < M; m++) {

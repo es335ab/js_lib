@@ -29,8 +29,8 @@ var UXDLIB_PC = {};
     this.bgModal = args.bgModal;
     this.topPadding = args.topPadding;
     this.triggerClose = $('.' + args.triggerClose);
-    this.padding = args.padding;
-    this.modalShingleMode = args.modalShingleMode;
+    this.topPadding = args.topPadding;
+    this.modalSingleMode = args.modalSingleMode;
     this.loadEvent = args.loadEvent;
     this.callBackOpen = args.callBackOpen;
     this.body = $('body');
@@ -86,7 +86,7 @@ var UXDLIB_PC = {};
 
     fn.removeWindow = function(){
       $('.' + this.bgModal).removeClass('showModal');
-      if(this.modalShingleMode){
+      if(this.modalSingleMode){
         $('.' + this.targetClassName).removeClass('showModal');
       }else {
         for(var m = 0 ,M = $('.' + this.targetClassName).length; m < M; m++){
@@ -100,15 +100,9 @@ var UXDLIB_PC = {};
         bgModalWrp = $('.' + this.bgModal);
     bgModalWrp.addClass('showModal');
     bgModalWrp.attr('style', 'width:' + this.body.width() + 'px;height:' + this.body.height() + 'px;');
-    if (this.modalShingleMode) {
-      modalWrp.addClass('showModal');
-      modalWrp.attr('style', 'top:' + this.body.scrollTop() + 'px;');
-    } else if (this.loadEvent) {
-      modalWrp.addClass('showModal');
-    } else {
-      modalWrp.addClass('showModal');
-      modalWrp.attr('style', 'top:' + this.body.scrollTop() + 'px;');
-    }
+
+    modalWrp.addClass('showModal');
+    modalWrp.attr('style', 'top:' + (this.body.scrollTop() + this.topPadding) + 'px;');
     if (this.callBackOpen) {
       this.callBackOpen(e);
     }
@@ -116,7 +110,7 @@ var UXDLIB_PC = {};
 
   fn.removeWindow = function () {
     $('.' + this.bgModal).removeClass('showModal');
-    if (this.modalShingleMode) {
+    if (this.modalSingleMode) {
       $('.' + this.targetClassName).removeClass('showModal');
     } else {
       for (var m = 0 , M = $('.' + this.targetClassName).length; m < M; m++) {
