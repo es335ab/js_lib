@@ -90,9 +90,9 @@ var UXDLIB_SP = {};
       if (evt.target.className === self.bgModal + ' showModal') {
         self.removeWindow(evt, document);
       }
-    }, false);
-
+    },false);
   }
+
   fn.addWindow = function (num, doc, win, e) {
     var modalWrp = doc.getElementsByClassName(this.targetClassName),
         bgModalWrp = doc.getElementsByClassName(this.bgModal);

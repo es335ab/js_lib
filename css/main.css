@@ -1,7 +1,6 @@
 body {
   font-family: sans-serif;
   /*font-family: 'rounded-l-mplus-1c-light' , sans-serif;*/
-  padding-bottom: 30px;
   font-size: 18px;
 }
 
@@ -28,7 +27,8 @@ pre,
   margin: 40px 0 40px 40px;
 }
 
-ul {
+ul,
+ol {
   padding-left: 40px;
 }
 
