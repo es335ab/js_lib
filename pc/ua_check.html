@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+
+<title>UA Check | UXD JS Library</title>
+<meta name="description" content="Markdown renderer">
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<section class="container">
+  <h1 class="siteTitle">UA Check</h1>
+  <p class="uaDevice1"></p>
+  <p class="uaDevice2"></p>
+  <p class="uaVersion"></p>
+  <p class="uaBrowser"></p>
+</section>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/uxd_lib_pc.js"></script>
+<script>
+  function uaCallBack(e){
+    $('.uaDevice1').text('PC or SP: ' + e[0]);
+    $('.uaDevice2').text('Device: ' + e[1]);
+    $('.uaVersion').text('Android version: ' + e[2]);
+    $('.uaBrowser').text('Browser: ' + e[3]);
+  }
+  new UXDLIB_PC.uaCheck({
+    callBackOpen : function(e){uaCallBack(e);}
+  });
+</script>
+</body>
+</html>
