@@ -145,10 +145,8 @@ var UXDLIB_PC = {};
   var fn = UXDLIB_PC.uaCheck.prototype;
 
   fn.init = function (evt) {
-    var self = this,
-        device = self.deviceCheck();
+    var device = this.deviceCheck();
     this.callBackOpen(device);
-    console.log(this.ua);
   }
 
   fn.deviceCheck = function () {

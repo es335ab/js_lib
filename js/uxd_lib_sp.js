@@ -69,7 +69,7 @@ var UXDLIB_SP = {};
       }, false);
     }
 
-    for (var i = 0 , I = self.triggerClassName.length; i < I; i++) {
+    for (var i = 0 , I = this.triggerClassName.length; i < I; i++) {
       (function (l) {
         self.triggerClassName[l].addEventListener(self.eventType, function (evt) {
           self.addWindow(l, document, window, evt);
@@ -77,10 +77,9 @@ var UXDLIB_SP = {};
       })(i);
     }
 
-    for (var i = 0 , I = self.triggerClose.length; i < I; i++) {
+    for (var i = 0 , I = this.triggerClose.length; i < I; i++) {
       (function (l) {
         self.triggerClose[l].addEventListener(self.eventType, function (evt) {
-          console.log(self);
           self.removeWindow(evt, document);
         }, false);
       })(i);
