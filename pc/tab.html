@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+
+    <title>tab_change | UXD JS Library</title>
+    <meta name="description" content="Markdown renderer">
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/main.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/pc/tab.css" rel="stylesheet">
+</head>
+
+<body>
+<section class="container">
+    <h1 class="siteTitle">Tab</h1>
+    <ul class="about">
+        <li>使用例：.jsTabTriggerのDOMがクリックされた時に、.jsTabTargetがdisplay:blockされる</li>
+    </ul>
+
+    <div class="content">
+
+        <h2>オプション無し</h2>
+        <div class="jsTab">
+            <ul class="jsTabTrigger clearfix">
+                <li class="current">タブ１</li>
+                <li>タブ２</li>
+                <li>タブ３</li>
+            </ul>
+            <ul class="jsTabTarget clearfix">
+                <li class="tab1 current">タブ１コンテンツ</li>
+                <li class="tab2">タブ２コンテンツ</li>
+                <li class="tab3">タブ３コンテンツ</li>
+            </ul>
+        </div>
+
+        <div class="explanation">
+            <script src="https://gist.github.com/yhikishima/b9f9052a5c38c0cf4056.js"></script>
+            <script src="https://gist.github.com/yhikishima/5ff0ba83939af1398efa.js"></script>
+        </div>
+
+        <h2>fadeパターン</h2>
+        <div class="jsTab">
+            <ul class="jsTabTrigger2 clearfix">
+                <li class="current">タブ１</li>
+                <li>タブ２</li>
+                <li>タブ３</li>
+            </ul>
+            <ul class="jsTabTarget2 clearfix">
+                <li class="tab1 current">タブ１コンテンツ</li>
+                <li class="tab2">タブ２コンテンツ</li>
+                <li class="tab3">タブ３コンテンツ</li>
+            </ul>
+        </div>
+
+        <div class="explanation">
+            <script src="https://gist.github.com/yhikishima/5599cc90b34401638c4a.js"></script>
+            <script src="https://gist.github.com/yhikishima/773859591835003852c3.js"></script>
+        </div>
+    </div>
+
+</section>
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/uxd_lib_pc.js"></script>
+<script>
+    //オプション無し
+    new UXDLIB_PC.tab({
+        triggerClassName : 'jsTabTrigger',
+        targetClassName : 'jsTabTarget',
+    });
+
+    //fade
+    new UXDLIB_PC.tab({
+        triggerClassName : 'jsTabTrigger2',
+        targetClassName : 'jsTabTarget2',
+        changeType: 'fade',
+        easing: 'linear',
+        distance: 200
+    });
+</script>
+</body>
+</html>

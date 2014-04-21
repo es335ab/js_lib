@@ -1,0 +1,63 @@
+@charset 'UTF-8';
+
+li,
+ul{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.jsTab {
+    width: 800px;
+    text-align: center;
+    margin-top: 25px;
+}
+.jsTabTrigger li,
+.jsTabTrigger2 li{
+    float: left;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 3px;
+    background-color: #dddddd;
+    cursor: pointer;
+}
+.jsTabTrigger li:hover,
+.jsTabTrigger li:active,
+.jsTabTrigger2 li:hover,
+.jsTabTrigger2 li:active {
+    opacity: .8;
+}
+.jsTabTrigger li.current:hover,
+.jsTabTrigger li.current:active
+.jsTabTrigger2 li.current:hover,
+.jsTabTrigger2 li.current:active{
+    opacity: 1;
+}
+.jsTabTrigger li.current,
+.jsTabTrigger2 li.current{
+    background-color: #eeeeee;
+}
+.jsTabTrigger a,
+.jsTabTrigger2 a{
+    display: block;
+}
+
+.jsTabTarget,
+.jsTabTarget2 {
+    overflow: hidden;
+    width: 800px;
+    height: 400px;
+}
+.jsTabTarget li,
+.jsTabTarget2 li {
+    display: none;
+    width: 800px;
+    height: 400px;
+    line-height: 400px;
+    background-color: #eeeeee;
+}
+.jsTabTarget li.current,
+.jsTabTarget2 li.current {
+    display: block;
+}

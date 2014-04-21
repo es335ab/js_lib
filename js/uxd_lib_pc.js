@@ -271,4 +271,58 @@ var UXDLIB_PC = {};
     return this.browser;
   }
 
+  //tab change
+  UXDLIB_PC.tab = function(arg) {
+    this.triggetList = $('.'+ arg.triggerClassName + ' li');
+    this.targetList = $('.'+ arg.targetClassName + ' li');
+    this.changeType = ( arg.changeType ) ? arg.changeType : 'normal';
+    this.easing = ( arg.easing ) ? arg.easing : 'swing';
+    this.distance = ( arg.distance ) ? arg.distance : '500';
+
+    this.init();
+  }
+
+  var proto = UXDLIB_PC.tab.prototype;
+
+  proto.init = function() {
+    var self = this;
+
+    if ( this.changeType === 'normal' ) {
+      this.triggetList.on('click', function() {
+        self.changeNormal(this);
+      });
+
+    } else if ( this.changeType === 'fade' ) {
+      this.triggetList.on('click', function() {
+        self.changeFade(this);
+      });
+
+    }
+  }
+
+  proto.changeTab = function(target) {
+    this.triggetList.removeClass('current');
+    $(target).addClass('current');
+  }
+
+  proto.changeNormal = function(target) {
+    var $targetNum = this.triggetList.index(target);
+
+    this.changeTab(target);
+
+    this.targetList.removeClass('current');
+    this.targetList.eq($targetNum).addClass('current');
+  }
+
+  proto.changeFade = function(target) {
+    var $targetNum = this.triggetList.index(target);
+
+    this.changeTab(target);
+
+    this.targetList.removeClass('current').css('display', 'none');
+    this.targetList.eq($targetNum).fadeIn(this.distance, this.easing, function() {
+      display: 'block'
+    }).addClass('current');
+  }
+
 })(UXDLIB_PC || (UXDLIB_PC = {}));
