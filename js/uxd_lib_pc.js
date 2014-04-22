@@ -273,11 +273,12 @@ var UXDLIB_PC = {};
 
   //tab change
   UXDLIB_PC.tab = function(arg) {
-    this.triggetList = $('.'+ arg.triggerClassName + ' li');
-    this.targetList = $('.'+ arg.targetClassName + ' li');
+    this.triggetList = $('#'+ arg.triggerIdName + ' li');
+    this.targetList = $('#'+ arg.targetIdName + ' li');
+    this.tabCurrent = ( arg.tabCurrent ) ? arg.tabCurrent : 0;
     this.changeType = ( arg.changeType ) ? arg.changeType : 'normal';
     this.easing = ( arg.easing ) ? arg.easing : 'swing';
-    this.distance = ( arg.distance ) ? arg.distance : '500';
+    this.distance = ( arg.distance ) ? arg.distance : 500;
 
     this.init();
   }
@@ -287,17 +288,22 @@ var UXDLIB_PC = {};
   proto.init = function() {
     var self = this;
 
-    if ( this.changeType === 'normal' ) {
-      this.triggetList.on('click', function() {
-        self.changeNormal(this);
-      });
+    this.setDefault();
 
-    } else if ( this.changeType === 'fade' ) {
-      this.triggetList.on('click', function() {
-        self.changeFade(this);
-      });
+    this.triggetList.on('click', function() {
+      self.changeTarget(this);
+    });
 
+  }
+
+  proto.setDefault = function() {
+    this.triggetList.eq(this.tabCurrent).addClass('current');
+
+    if ( this.changeType === 'fade' ) {
+      this.targetList.addClass('hide').eq(this.tabCurrent).removeClass('hide');
     }
+
+    this.targetList.eq(this.tabCurrent).addClass('current');
   }
 
   proto.changeTab = function(target) {
@@ -305,24 +311,20 @@ var UXDLIB_PC = {};
     $(target).addClass('current');
   }
 
-  proto.changeNormal = function(target) {
-    var $targetNum = this.triggetList.index(target);
+  proto.changeTarget = function(target) {
+    var targetNum = this.triggetList.index(target);
 
     this.changeTab(target);
 
-    this.targetList.removeClass('current');
-    this.targetList.eq($targetNum).addClass('current');
-  }
+    if ( this.changeType === 'normal' ) {
+      this.targetList.removeClass('current');
+      this.targetList.eq(targetNum).addClass('current');
 
-  proto.changeFade = function(target) {
-    var $targetNum = this.triggetList.index(target);
+    } else if ( this.changeType === 'fade' ) {
+      this.targetList.removeClass('current').addClass('hide');
+      this.targetList.eq(targetNum).fadeIn(this.distance, this.easing).addClass('current').removeClass('hide');
 
-    this.changeTab(target);
-
-    this.targetList.removeClass('current').css('display', 'none');
-    this.targetList.eq($targetNum).fadeIn(this.distance, this.easing, function() {
-      display: 'block'
-    }).addClass('current');
+    }
   }
 
 })(UXDLIB_PC || (UXDLIB_PC = {}));

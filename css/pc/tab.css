@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 li,
-ul{
+ul {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -12,8 +12,8 @@ ul{
     text-align: center;
     margin-top: 25px;
 }
-.jsTabTrigger li,
-.jsTabTrigger2 li{
+#jsTabTrigger li,
+#jsTabTrigger2 li {
     float: left;
     width: 200px;
     height: 50px;
@@ -22,42 +22,46 @@ ul{
     background-color: #dddddd;
     cursor: pointer;
 }
-.jsTabTrigger li:hover,
-.jsTabTrigger li:active,
-.jsTabTrigger2 li:hover,
-.jsTabTrigger2 li:active {
+#jsTabTrigger li:hover,
+#jsTabTrigger li:active,
+#jsTabTrigger2 li:hover,
+#jsTabTrigger2 li:active {
     opacity: .8;
 }
-.jsTabTrigger li.current:hover,
-.jsTabTrigger li.current:active
-.jsTabTrigger2 li.current:hover,
-.jsTabTrigger2 li.current:active{
+#jsTabTrigger li.current:hover,
+#jsTabTrigger li.current:active,
+#jsTabTrigger2 li.current:hover,
+#jsTabTrigger2 li.current:active {
     opacity: 1;
 }
-.jsTabTrigger li.current,
-.jsTabTrigger2 li.current{
+#jsTabTrigger li.current,
+#jsTabTrigger2 li.current {
     background-color: #eeeeee;
 }
-.jsTabTrigger a,
-.jsTabTrigger2 a{
+#jsTabTrigger a,
+#jsTabTrigger2 a {
     display: block;
 }
 
-.jsTabTarget,
-.jsTabTarget2 {
+#jsTabTarget,
+#jsTabTarget2 {
     overflow: hidden;
     width: 800px;
     height: 400px;
 }
-.jsTabTarget li,
-.jsTabTarget2 li {
+#jsTabTarget li,
+#jsTabTarget2 li {
     display: none;
     width: 800px;
     height: 400px;
     line-height: 400px;
     background-color: #eeeeee;
 }
-.jsTabTarget li.current,
-.jsTabTarget2 li.current {
+#jsTabTarget li.current,
+#jsTabTarget2 li.current {
     display: block;
+}
+#jsTabTarget li.hide,
+#jsTabTarget2 li.hide {
+    display: none !important;
 }

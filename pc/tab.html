@@ -23,13 +23,13 @@
 
         <h2>オプション無し</h2>
         <div class="jsTab">
-            <ul class="jsTabTrigger clearfix">
-                <li class="current">タブ１</li>
+            <ul class="clearfix" id="jsTabTrigger">
+                <li>タブ１</li>
                 <li>タブ２</li>
                 <li>タブ３</li>
             </ul>
-            <ul class="jsTabTarget clearfix">
-                <li class="tab1 current">タブ１コンテンツ</li>
+            <ul class="clearfix" id="jsTabTarget">
+                <li class="tab1">タブ１コンテンツ</li>
                 <li class="tab2">タブ２コンテンツ</li>
                 <li class="tab3">タブ３コンテンツ</li>
             </ul>
@@ -42,13 +42,13 @@
 
         <h2>fadeパターン</h2>
         <div class="jsTab">
-            <ul class="jsTabTrigger2 clearfix">
-                <li class="current">タブ１</li>
+            <ul class="clearfix" id="jsTabTrigger2">
+                <li>タブ１</li>
                 <li>タブ２</li>
                 <li>タブ３</li>
             </ul>
-            <ul class="jsTabTarget2 clearfix">
-                <li class="tab1 current">タブ１コンテンツ</li>
+            <ul class="clearfix" id="jsTabTarget2">
+                <li class="tab1">タブ１コンテンツ</li>
                 <li class="tab2">タブ２コンテンツ</li>
                 <li class="tab3">タブ３コンテンツ</li>
             </ul>
@@ -67,14 +67,15 @@
 <script>
     //オプション無し
     new UXDLIB_PC.tab({
-        triggerClassName : 'jsTabTrigger',
-        targetClassName : 'jsTabTarget',
+        triggerIdName : 'jsTabTrigger',
+        targetIdName : 'jsTabTarget',
     });
 
     //fade
     new UXDLIB_PC.tab({
-        triggerClassName : 'jsTabTrigger2',
-        targetClassName : 'jsTabTarget2',
+        triggerIdName : 'jsTabTrigger2',
+        targetIdName : 'jsTabTarget2',
+        tabCurrent : 1,
         changeType: 'fade',
         easing: 'linear',
         distance: 200
